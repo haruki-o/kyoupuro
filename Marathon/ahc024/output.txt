@@ -1,0 +1,308 @@
+MsMpEng.exe	23936	13	477592	226552	26088	200464
+Memory Compression	3628	29	3492	210816	0	210816
+chrome.exe	16528	0	448032	197452	24244	173208
+chrome.exe	1528	0	126496	168484	66888	101596
+wuauclt.exe	16912	1	378128	134680	2684	131996
+chrome.exe	19264	3	190488	125748	42988	82760
+chrome.exe	21480	0	75296	120548	58280	62268
+chrome.exe	22344	8	136300	116444	26656	89788
+chrome.exe	26388	0	109032	103512	26992	76520
+explorer.exe	8260	5	253028	87908	39420	48488
+Code.exe	11080	2	212232	74900	11908	62992
+chrome.exe	7516	0	27976	66052	49920	16132
+chrome.exe	19736	0	64740	64712	19840	44872
+chrome.exe	26508	0	26160	59304	44336	14968
+chrome.exe	22376	0	27844	59116	43744	15372
+chrome.exe	25636	0	27588	59080	43816	15264
+perfmon.exe	19744	0	39788	59012	21056	37956
+chrome.exe	9904	0	22964	57872	44460	13412
+chrome.exe	12520	0	22352	56848	43808	13040
+chrome.exe	9536	0	26612	56688	43288	13400
+chrome.exe	10176	0	23340	55716	44412	11304
+chrome.exe	15552	0	26468	55156	45168	9988
+chrome.exe	21528	0	67512	54820	42952	11868
+Taskmgr.exe	14460	0	72204	53244	19548	33696
+TextInputHost.exe	12068	0	42168	48296	42244	6052
+chrome.exe	16648	0	62252	48192	19820	28372
+chrome.exe	22928	0	28144	45200	28812	16388
+chrome.exe	1340	0	34296	41720	19176	22544
+dwm.exe	1472	2	218620	41176	10280	30896
+chrome.exe	12128	0	27124	38860	33856	5004
+chrome.exe	10940	0	30388	37436	20292	17144
+chrome.exe	22456	0	22372	36212	26832	9380
+chrome.exe	21376	0	27116	34664	29312	5352
+CompatTelRunner.exe	11380	206	101304	32768	2652	30116
+chrome.exe	17664	0	17260	28024	20568	7456
+Code.exe	13100	0	42856	27912	8940	18972
+Code.exe	13024	0	52760	27736	15540	12196
+slack.exe	12440	2	90140	27524	8068	19456
+Secure System	72	0	184	23656	0	23656
+svchost.exe (DcomLaunch -p)	1200	0	22152	21256	7104	14152
+chrome.exe	8616	0	33188	20728	7240	13488
+ctfmon.exe	10336	0	141428	20648	9888	10760
+svchost.exe (LocalServiceNoNetwork -p)	4320	0	24136	18008	6084	11924
+slack.exe	8880	0	190692	16316	7580	8736
+Docker Desktop.exe	11960	0	95944	15884	3900	11984
+svchost.exe (RPCSS -p)	1324	1	17668	14812	5048	9764
+chrome.exe	14624	2	55184	14568	3816	10752
+svchost.exe (ClipboardSvcGroup -p)	4508	0	4196	14512	13060	1452
+svchost.exe (netsvcs -p)	3088	0	12616	14000	7404	6596
+Code.exe	13844	0	158544	13988	4612	9376
+RuntimeBroker.exe	15012	0	4820	13968	13228	740
+Registry	132	5	15808	13620	10484	3136
+SearchApp.exe	16436	0	81308	13332	7180	6152
+svchost.exe (UnistackSvcGroup)	8068	0	16788	13248	7704	5544
+com.docker.backend.exe	13940	0	28144	13216	5656	7560
+svchost.exe (LocalService -p)	8412	0	6232	13148	10640	2508
+StartMenuExperienceHost.exe	9640	1	31148	12996	7536	5460
+RuntimeBroker.exe	9812	0	4740	12916	12012	904
+svchost.exe (utcsvc -p)	23072	3	29956	12864	7444	5420
+GoogleUpdate.exe	6828	1	5892	12656	9792	2864
+com.docker.service	6172	0	62724	12112	4848	7264
+svchost.exe (LocalServiceNetworkRestricted -p)	1828	2	16656	12044	3180	8864
+svchost.exe (LocalServiceNoNetworkFirewall -p)	3832	1	14284	12044	4952	7092
+WmiPrvSE.exe	14132	0	3820	11924	9492	2432
+lsass.exe	1044	0	13132	11728	6224	5504
+RuntimeBroker.exe	19704	0	9108	11660	10724	936
+svchost.exe (netsvcs -p)	24268	0	48856	11588	6000	5588
+GameBar.exe	1452	0	32012	11588	7552	4036
+chrome.exe	14756	0	98208	11204	9932	1272
+svchost.exe (netsvcs -p)	24020	0	4932	11160	8228	2932
+OfficeClickToRun.exe	15532	0	53048	11016	7812	3204
+RuntimeBroker.exe	10092	0	13512	10992	9152	1840
+SearchIndexer.exe	22776	2	57788	10924	4640	6284
+svchost.exe (appmodel -p)	2928	0	15724	10792	4664	6128
+HxOutlook.exe	21500	0	78744	10324	6052	4272
+svchost.exe (NetworkService -p)	4276	0	8104	9852	7864	1988
+svchost.exe (LocalSystemNetworkRestricted -p)	4632	0	9216	9756	7312	2444
+chrome.exe	13440	0	75840	9692	8204	1488
+svchost.exe (netsvcs -p)	7364	0	6620	9424	6456	2968
+slack.exe	13056	0	80212	9280	4840	4440
+chrome.exe	6332	0	18040	9276	8192	1084
+chrome.exe	14484	0	21152	9196	8008	1188
+setup.exe	11028	353	5160	9132	6572	2560
+svchost.exe (UnistackSvcGroup)	8160	2	9728	8948	6884	2064
+svchost.exe (NetworkService -p)	3036	0	8540	8928	5652	3276
+DataExchangeHost.exe	3172	0	7572	8864	7788	1076
+svchost.exe (LocalSystemNetworkRestricted -p)	7572	0	11696	8844	7936	908
+GameBarFTServer.exe	20896	0	13604	8780	7240	1540
+SecurityHealthService.exe	11832	1	4916	8684	6008	2676
+taskhostw.exe	1860	0	9124	8644	6152	2492
+chrome.exe	20212	0	21256	8636	7576	1060
+com.docker.proxy.exe	2828	0	21064	8588	3672	4916
+RuntimeBroker.exe	11032	0	12696	8576	5836	2740
+smartscreen.exe	24588	0	2396	8348	7164	1184
+services.exe	692	0	8096	8252	3864	4388
+GoogleCrashHandler64.exe	26328	0	1596	8228	7080	1148
+taskhostw.exe	9160	0	9216	8224	7316	908
+sihost.exe	7924	0	13936	8188	4916	3272
+docker.exe	6500	0	23928	8180	1308	6872
+HxTsr.exe	26236	0	26388	8172	5092	3080
+slack.exe	12408	0	18596	8168	5968	2200
+svchost.exe (netsvcs -p)	5580	0	6016	8168	6212	1956
+slack.exe	22576	0	12448	8080	7452	628
+svchost.exe (netsvcs -p)	4796	0	4060	7984	7164	820
+Code.exe	14420	0	14616	7936	5976	1960
+chrome.exe	25320	0	21332	7852	6696	1156
+slack.exe	14048	0	40144	7764	3704	4060
+chrome.exe	19436	0	21432	7736	6320	1416
+svchost.exe (netsvcs -p)	17008	0	1772	7612	6436	1176
+fontdrvhost.exe	1224	0	4688	7520	5732	1788
+svchost.exe (netsvcs -p)	1368	0	7572	7388	4876	2512
+GoogleCrashHandler.exe	1160	0	1364	7364	6464	900
+Docker Desktop.exe	8532	0	42800	7332	5312	2020
+McCSPServiceHost.exe	15140	0	10000	7284	6600	684
+svchost.exe (netsvcs -p)	6412	0	74100	7164	5984	1180
+svchost.exe (netsvcs -p)	1812	0	3780	7144	5816	1328
+chrome.exe	11764	0	21704	7140	6024	1116
+Code.exe	22840	0	80768	7128	3528	3600
+RuntimeBroker.exe	3020	1	5016	7032	5380	1652
+svchost.exe (LocalService -p)	3416	0	4496	6956	4612	2344
+vpnagent.exe	4556	0	8116	6916	6612	304
+chrome.exe	19592	0	48256	6900	4416	2484
+vmwp.exe	15880	0	11408	6688	4236	2452
+svchost.exe (BcastDVRUserService)	4308	0	11496	6620	4668	1952
+dllhost.exe	2812	0	4648	6560	5852	708
+chrome.exe	6608	0	10784	6524	4144	2380
+svchost.exe (NetSvcs -p)	3928	0	4768	6468	5216	1252
+svchost.exe (LocalService -p)	1720	0	3588	6464	4808	1656
+chrome.exe	7512	0	99256	6444	5112	1332
+vmwp.exe	9868	0	8124	6440	4296	2144
+svchost.exe (UnistackSvcGroup)	5668	0	9672	6428	5220	1208
+WUDFHost.exe	7292	1	10972	6176	5104	1072
+com.docker.backend.exe	12912	0	21348	6140	1124	5016
+vmmem	14232	0	379712	6100	0	6100
+com.docker.desktop-extensions.exe	13304	0	18312	6080	2480	3600
+svchost.exe (NetworkService)	1620	0	5772	6044	4748	1296
+svchost.exe (appmodel -p)	3048	0	3380	6040	4724	1316
+svchost.exe (netsvcs -p)	2500	0	3392	5844	4404	1440
+svchost.exe (WbioSvcGroup)	5060	1	215600	5816	4016	1800
+svchost.exe (LocalServiceNetworkRestricted -p)	8960	0	2764	5764	4792	972
+svchost.exe (netsvcs -p)	7548	0	7096	5744	4704	1040
+horizon_client_service.exe	4292	0	3564	5708	4904	804
+Docker Desktop.exe	13856	0	77664	5684	4004	1680
+svchost.exe (NetworkService -p)	3308	0	5396	5668	3024	2644
+vmcompute.exe	4192	0	3116	5644	4720	924
+svchost.exe (LocalServiceNetworkRestricted -p)	6352	0	1280	5568	5232	336
+vpnkit-bridge.exe	7960	0	21008	5392	1388	4004
+SgrmBroker.exe	6336	0	9712	5260	948	4312
+svchost.exe (LocalServiceNetworkRestricted -p)	15152	0	2900	5232	3872	1360
+ApplicationFrameHost.exe	14020	0	13620	5188	4468	720
+svchost.exe (NetSvcs -p)	5248	0	3240	5156	4628	528
+WUDFHost.exe	2884	0	6896	5148	5108	40
+svchost.exe (LocalSystemNetworkRestricted -p)	5008	0	5680	5104	3988	1116
+MoUsoCoreWorker.exe	10580	0	116248	5080	2976	2104
+IntelAudioService.exe	5236	0	27940	5068	4436	632
+svchost.exe (LocalSystemNetworkRestricted -p)	1896	0	2832	5000	4300	700
+chrome.exe	17336	0	45984	4948	3188	1760
+svchost.exe (netsvcs)	6904	0	3672	4884	4216	668
+TabTip.exe	10360	1	25136	4872	3552	1320
+Code.exe	24900	0	23428	4824	2792	2032
+svchost.exe (netsvcs -p)	2772	0	2488	4772	4260	512
+svchost.exe (netsvcs)	3656	0	4216	4768	4264	504
+UserOOBEBroker.exe	12148	0	5340	4756	3180	1576
+setup.exe	15672	0	3296	4684	4264	420
+vmware-usbarbitrator64.exe	5452	0	3112	4652	3944	708
+vmms.exe	3236	0	46252	4648	2520	2128
+WmiPrvSE.exe	12160	0	2960	4644	3536	1108
+svchost.exe (netsvcs -p)	2216	0	3468	4620	4116	504
+NisSrv.exe	16060	0	6384	4600	3400	1200
+svchost.exe (netsvcs -p)	14792	0	2264	4476	4152	324
+svchost.exe (LocalServiceNetworkRestricted -p)	2560	0	2436	4448	3480	968
+Code.exe	19396	0	23792	4420	3596	824
+com.docker.dev-envs.exe	13104	0	17792	4416	1020	3396
+svchost.exe (DcomLaunch -p)	1372	0	4036	4348	3248	1100
+chrome.exe	6340	0	173672	4328	2132	2196
+igfxCUIServiceN.exe	1916	0	2372	4288	3872	416
+SurfaceService.exe	5432	0	9540	4252	3420	832
+CompPkgSrv.exe	19188	0	2012	4200	3584	616
+chrome.exe	17860	0	96200	4168	2748	1420
+svchost.exe (LocalServiceNetworkRestricted -p)	2384	0	4060	4136	2868	1268
+AppVShNotify.exe	8652	0	1888	4116	4100	16
+svchost.exe (LocalServiceNetworkRestricted -p)	4436	0	3872	3980	3208	772
+spoolsv.exe	4924	0	5840	3956	3564	392
+Microsoft.SharePoint.exe	21896	2	15096	3940	2436	1504
+SecurityHealthSystray.exe	11672	0	2360	3936	3156	780
+svchost.exe (LocalService -p)	2268	0	2172	3916	3172	744
+svchost.exe (LocalServiceAndNoImpersonation -p)	12516	1	2920	3880	2808	1072
+svchost.exe (LocalServiceNetworkRestricted -p)	18828	0	2180	3868	2808	1060
+svchost.exe (netsvcs -p)	4324	0	2616	3836	2928	908
+svchost.exe (LocalSystemNetworkRestricted -p)	8908	0	2468	3792	3036	756
+WUDFHost.exe	1484	1	86220	3784	2752	1032
+chrome.exe	20092	0	116544	3752	1780	1972
+svchost.exe (wsappx -p)	22380	0	3356	3728	3128	600
+svchost.exe (LocalService -p)	9704	0	4852	3556	2468	1088
+chrome.exe	8600	0	21420	3544	2500	1044
+Docker Desktop.exe	4688	0	12760	3504	3080	424
+chrome.exe	20856	0	76000	3496	2096	1400
+vpnui.exe	12932	0	16172	3376	2704	672
+svchost.exe (LocalServiceNetworkRestricted -p)	2000	0	3392	3360	2480	880
+svchost.exe (LocalServiceAndNoImpersonation -p)	6924	0	2416	3328	2704	624
+svchost.exe (LocalSystemNetworkRestricted -p)	3476	0	4328	3312	1720	1592
+SettingSyncHost.exe	10608	0	20480	3312	1984	1328
+dllhost.exe	10976	0	4364	3288	3024	264
+svchost.exe (LocalServiceNetworkRestricted)	8476	0	2652	3232	2508	724
+igfxEMN.exe	2892	0	4672	3184	2756	428
+svchost.exe (netsvcs -p)	3984	0	2392	3124	2724	400
+svchost.exe (LocalService -p)	1660	0	9596	3112	1328	1784
+ShellExperienceHost.exe	1508	0	30632	3076	2952	124
+Code.exe	15508	0	33872	3044	1472	1572
+GoogleUpdate.exe	4792	1	3156	2996	2124	872
+chrome.exe	3900	0	2272	2932	2308	624
+mDNSResponder.exe	4228	0	3164	2900	2448	452
+svchost.exe (BthAppGroup -p)	8048	0	1896	2888	2420	468
+svchost.exe (netsvcs -p)	4184	0	11744	2872	2772	100
+svchost.exe (NetSvcs)	4044	0	1664	2860	2512	348
+svchost.exe (LocalSystemNetworkRestricted -p)	7564	0	2092	2836	2492	344
+chrome.exe	17220	0	21368	2808	1724	1084
+RtkAudUService64.exe	5296	0	2636	2780	2428	352
+svchost.exe (NetworkService -p)	3856	0	2252	2772	1968	804
+Code.exe	14296	0	10860	2692	2572	120
+svchost.exe (LocalSystemNetworkRestricted -p)	3620	0	2268	2684	2260	424
+WUDFHost.exe	4540	0	2220	2676	2280	396
+svchost.exe (LocalSystemNetworkRestricted -p)	2512	0	1968	2640	2328	312
+SurfaceBroker.exe	6688	0	4480	2632	2164	468
+svchost.exe (LocalSystemNetworkRestricted -p)	6912	0	3064	2632	2264	368
+cpptools.exe	17364	0	57048	2524	1456	1068
+vmwsprrdpwks.exe	5472	0	4072	2516	2348	168
+CodeSetup-stable-e7e037083ff4455cf320e344325dacb480062c3c.tmp	18092	0	23048	2468	2268	200
+GoogleUpdate.exe	10624	1	2368	2408	1660	748
+csrss.exe	916	0	2748	2404	1568	836
+svchost.exe (LocalServiceNetworkRestricted)	1692	1	2180	2392	1724	668
+svchost.exe (LocalServiceNetworkRestricted -p)	4564	0	1884	2336	2084	252
+chrome.exe	25836	0	7720	2292	1648	644
+svchost.exe (LocalService -p)	3648	0	2524	2248	1388	860
+svchost.exe (LocalSystemNetworkRestricted -p)	18548	0	6536	2192	2008	184
+svchost.exe (LocalSystemNetworkRestricted -p)	2208	0	1996	2112	1772	340
+conhost.exe	1736	0	7028	2076	1752	324
+RuntimeBroker.exe	12024	1	7560	2040	1528	512
+SSScheduler.exe	12680	0	2944	2012	1628	384
+svchost.exe (netsvcs -p)	15380	0	2660	2000	1748	252
+ftscanmgrhv.exe	3752	0	4844	1988	1824	164
+PresentationFontCache.exe	8132	0	24268	1984	1648	336
+svchost.exe (netsvcs -p)	23628	0	2996	1984	1984	0
+svchost.exe (LocalSystemNetworkRestricted -p)	2984	0	1648	1964	1676	288
+svchost.exe (LocalServiceNoNetwork -p)	2100	0	1660	1904	1256	648
+svchost.exe (LocalServiceAndNoImpersonation)	9172	0	2036	1884	1460	424
+svchost.exe (netsvcs -p)	1612	0	2696	1848	1420	428
+svchost.exe (LocalSystemNetworkRestricted -p)	3736	0	2364	1804	1400	404
+MySQLInstallerConsole.exe	13076	0	33820	1760	1180	580
+winlogon.exe	588	0	2912	1716	1332	384
+CodeSetup-stable-e7e037083ff4455cf320e344325dacb480062c3c.exe	18720	0	7248	1716	1564	152
+svchost.exe (LocalService -p)	1740	0	2000	1672	1236	436
+IntelCpHDCPSvc.exe	2128	0	1420	1660	1392	268
+esif_uf.exe	4372	0	1832	1628	1288	340
+svchost.exe (LocalService -p)	2228	0	1912	1616	1204	412
+svchost.exe (LocalService -p)	5332	0	1600	1552	1180	372
+dllhost.exe	23488	0	2136	1524	1396	128
+wlanext.exe	7716	0	1672	1524	1504	20
+svchost.exe (LocalService -p)	2648	0	1580	1520	1188	332
+svchost.exe (LocalSystemNetworkRestricted -p)	26316	0	1452	1476	1052	424
+ftnlsv.exe	4480	0	3344	1460	1296	164
+svchost.exe (LocalSystemNetworkRestricted -p)	5464	0	1296	1400	1300	100
+MpCopyAccelerator.exe	19952	0	2368	1392	1068	324
+vpnkit.exe	10836	0	19348	1352	936	416
+svchost.exe (netsvcs -p)	3496	0	1328	1328	1004	324
+conhost.exe	23504	0	1312	1316	1192	124
+WMIRegistrationService.exe	5572	0	2496	1296	1236	60
+slack.exe	11276	0	11316	1264	1132	132
+svchost.exe (LocalService -p)	5832	0	1288	1256	908	348
+LockApp.exe	10792	0	16452	1240	1176	64
+cpptools-srv.exe	1816	0	50740	1232	1056	176
+SearchApp.exe	9948	0	124576	1208	20	1188
+conhost.exe	12308	0	6548	1180	720	460
+117.0.5938.152_chrome_installer.exe	21716	0	3312	1180	940	240
+csrss.exe	880	0	2016	1160	660	500
+wslhost.exe	14868	0	1284	1160	1144	16
+GoogleCrashHandler64.exe	8248	1	1832	1148	804	344
+armsvc.exe	4180	0	1596	1148	1096	52
+wsl.exe	10116	0	1464	1136	1108	28
+wslhost.exe	22396	0	1340	1112	1096	16
+UpdateService.exe	5200	0	1180	996	936	60
+svchost.exe (LocalSystemNetworkRestricted -p)	1668	0	1156	956	708	248
+GoogleCrashHandler.exe	3136	0	1920	892	492	400
+conhost.exe	24720	0	6300	860	848	12
+conhost.exe	13204	0	6308	848	836	12
+conhost.exe	1240	0	6312	848	836	12
+conhost.exe	10768	0	6340	848	836	12
+conhost.exe	12040	0	6320	848	836	12
+conhost.exe	22852	0	6336	848	836	12
+conhost.exe	13044	0	6316	844	832	12
+conhost.exe	11916	0	6324	844	832	12
+conhost.exe	10868	0	6320	840	828	12
+conhost.exe	22460	0	6312	808	796	12
+conhost.exe	6960	0	6228	796	784	12
+LsaIso.exe	1036	0	1564	752	752	0
+wininit.exe	848	0	1456	740	740	0
+FolderSizeSvc.exe	4248	0	1276	716	676	40
+fontdrvhost.exe	1232	0	2792	620	588	32
+conhost.exe	18196	0	6720	608	388	220
+RuntimeBroker.exe	16532	0	1324	472	380	92
+WUDFHost.exe	2364	0	102732	472	432	40
+CompatTelRunner.exe	19776	0	1044	384	368	16
+MusNotifyIcon.exe	22808	0	4220	244	160	84
+SearchApp.exe	7072	0	342364	192	0	192
+smss.exe	544	0	1084	124	124	0
+cpptools.exe	25324	0	5948	60	44	16
+System	4	0	196	24	12	12
+vmmem	9672	0	40	0	0	0

@@ -1,0 +1,85 @@
+・local0
+  ・ベースは、配布されたサンプルコードを使って, Judgeのプロジェクト・方針カードの生成を変える.
+
+・local1 (98236 0.5M)
+  ・0番目とINVESTのみを使う. INVESTは, 500ターン以内. 
+
+・local2 ← local1 (133239 0.3M)
+  ・select_next_card()
+    ・使った時と使わなかった時の1日当たりの効率で買うかどうか決める.
+    ・同じWORK_SINGLEがあった時は, w / pが大きい方を買う.
+  ・efficiency_project()
+    ・h / v が一番高いprojectsのインデックスを返す.
+  ・select_action()
+    ・m を v / hが高いプロジェクトにする.
+
+・local3 <- local2
+  ・select_action()
+    ・v / h ⋆ w が高い, WORK_SINGLE, WORK_ALLを採用する.
+
+・local4 <- local3 (160212843, 1.6M)
+  ・select_next_card()
+    ・WORK_SINGLE, WORK_ALL, INVESTを生成する時の乱数が小さい方の時採用する
+
+・local5 <- local4 (29457212, 3.2M)
+  ・select_action()
+    ・CANCEL_SINGLEは、一番効率悪いプロジェクトが下位88%の時
+    ・CANCEL_ALLは、一番効率良いプロジェクトが下位50%の時
+    ・WORK_SINGLEは, 950 < turn の時, 完全消去できるのしか使用しない
+    ・優先順位 WORK < CANCEL < INVEST
+  ・select_next_card()
+    ・local4の時と同様
+    ・CANCEL_SINGLE + CANCEL_ALL は, n / 3 以下
+    ・CANCEL_ALLは, 1以下
+    ・WORK_ALL, INVESTは, 900 < turn の時採用しない
+    ・WORK_SINGLEは, 950 < turn の時, 完全消去できるのしか使用しない
+
+・local6.cpp <- local5.cpp (45596992, 3.2M)
+  ・select_next_card()
+    ・WORK_SINGLE, WORK_ALL, INVESTを生成する時の乱数が小さい方の時採用する <- ここのパラメータを少し変更しました
+
+・local8.cpp <- local6.cpp (123723094, 2.7M)相対↓
+  ・select_next_card()
+    ・WORK_SINGLEを生成する時, 超過分にペナルティを与えました
+
+・local9.cpp <- local8.cpp (109386672, 2.8M)相対↑
+  ・select_next_card()
+    ・INVESTを生成する時, 使った後のお金がWORK_SINGLEを使える分残っているときのみ生成可能にしました
+  
+・local10.cpp <- local9.cpp (341163206	2.8M)相対↓
+  ・select_next_card()
+    ・CANCEL_*の使用時, 最良プロジェクトが v / h < 1の時に使います.
+
+・local11.cpp <- local10.cpp
+  ・select_next_card()
+    ・INVESTの生成確率などを考慮し, 一定money溜まったら待つ
+
+・local12.cpp <- local11.cpp
+  ・select_next_card()
+    ・local11の変更点は戻しました
+    ・CANCEL_*の最大持ち数、パラメータを少し変更
+    ・WORK_SINGLEを採用する範囲をx_iごとに場合分けしました
+    ・INVESTは生成できるときはする
+
+・local13.cpp <- local12.cpp
+  ・select_next_card()
+    ・INVESTは600 < turnの時効率を考える
+    ・WORK_SINGLE, 適用するプロジェクトの効率は考えない
+
+・local14.cpp <- local13.cpp
+  ・select_next_card()
+    ・WORK_SINGLE, x[0] / sum * (k - 1)で場合分け
+  
+・local15.cpp <- local14.cpp
+  ・select_next_card()
+    ・CANCEL_*, h < 30 * pow(2, L) となるプロジェクトが出るまで使う
+
+・local16.cpp <- local15.cpp
+  ・select_next_card()
+    ・INVEST, いい乱数の時しか選ばない
+
+・local17.cpp 
+  ・途中のWAのやつを修正
+・local18.cpp
+  ・select_next_card()
+    ・INVEST, 次のWORK_SINGLE文を残す

@@ -1,0 +1,119 @@
+\documentclass[a4paper,dvipdfmx]{jarticle}
+\usepackage{amsmath, amssymb}
+\usepackage[dvipdfmx,marginparwidth=0pt,margin=20truemm]{geometry}
+\usepackage{breqn}
+
+\begin{document}
+
+\title{方式}
+
+\section{アルゴリズム}
+
+\subsection{Setup}
+    このアルゴリズムは, CAがBB署名とBBS+署名のカギ生成を行う. また, CAは評価レベル\ $1 \leq l \leq L$\ それぞれの整数列のすべての要素にBB署名を生成する. CAはそれぞれのRSU\ $i$\ の秘密鍵\ $rsk_i$\ を生成する.
+    \begin{enumerate}
+      \item 双線形群のパラメータ\ $(p, \mathbb{G}_1, \mathbb{G}_2, \mathbb{G}_T, e)$\ を選び\ ($\lambda$をセキュリティパラメータとし, $p > 2^{\lambda}$),\ $g_0,g_1,g_2,g_3,g_4,f_0,f_1 \xleftarrow{R} \mathbb{G}_1, h_0,h_1 \xleftarrow{R} \mathbb{G}_2$\ を選ぶ.\ 
+      すべての\ $1\leq l\leq L$\ に対し,\ $\gamma_{0,l} \xleftarrow{R} \mathbb{Z}_p^*$\ を選び,\ $\omega_{0,l} = h_0^{\gamma_{0,l}}$\ とする.\ 評価レベル\ $l$\ を証明するBB署名の鍵を\ $(sk,pk) = (\gamma_{0,l},\omega_{0,l})$\ とする.\ 
+      $\gamma_1 \xleftarrow{R} \mathbb{Z}_p^*$\ を選び,\ $\omega_1 = h_0^{\gamma_1}$\ とする.\ BBS+署名の鍵を\ $(sk,pk) = (\gamma_1, h_0^{\gamma_1})$\ とする.\ 
+      すべての\ $RSU\ i \in [ 1, num_{RSU}] (num_{RSU}$\ はRSUの数$)$に対し,\ $\gamma_{2,i} \xleftarrow{R} \mathbb{Z}_p^*$\ を選び,\ $\omega_{2,i} = h_0^{\gamma_{2,i}}$\ とする. BBS+署名の鍵を\ $(sk,pk) = (\gamma_{2,i},\omega_{2,i})$\ とする.\ また, \ $i=0$とき, CAのものとする. \\
+      
+      \item \ $R_{l,k}$\ を整数列である評価レベル\ $l$\ の\ $k$\ 番目の要素とし, すべての\ $1\leq l\leq L$\ に対し,評価レベル証明書\ $A_{l,R_{l,k}} = f_0^{1/(\gamma_{0,l}+R_{l,k})}$\ (BB署名)を生成する.\ また,\ $K_l$\ を整数列である評価レベル\ $l$\ の要素数とする. \\
+      
+      \item CAは, RSU\ $i$\ を二分木の葉\ $u_l$に割り当てる. ここで,\ $u_0,u_l,\cdots,u_l$はルートノードから葉ノード\ $u_l$\ へのパス上のノードとする.\ $j=0,\cdots,l$\ として,\ $\eta_j',\zeta_j' \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び,\ $\tilde{A}_{i,j}=(g_0g_1^{\zeta_j'}g_2^{u_j}g_3^{\gamma_{2,i}})^{1/ (\gamma_1 + \eta_j')}$を計算し, RSU\ $i$\ に$\{\theta_j=(A_j,\eta_j',\zeta_j')\}_{j=0}^l$と$\langle v_i \rangle := (u_0,u_1,\cdots,u_l)$\ を送る.\ また, 公開鍵を\ $\tilde{w}_{2,i} = g_3^{\gamma_{2,i}}$\ とする. \\
+      
+      \item それぞれの\ $RSU\ i \in [ 1, num_{RSU}]$\ に対し,\ 通常の公開鍵暗号方式の\ $(pk, sk) = (pcsk_i, pcpk_i)$\ を生成する.\ 公開鍵\ $pcpk_i$\ に対し,\ CAの\ $(pk, sk) = (pcsk_{CA}, pcpk_{CA})$\ を生成する.\ その後, \ すべての\ $i \in [ 1, num_{RSU}]$\ に対し,\ 秘密鍵\ $pcsk_{CA}$\ を使い,\ メッセージ\ $(pcpk_i, i)$\ のデジタル署名\ $pcpkcert_{i}$\ を生成する. \\
+      
+      \item $SSet$\ を空で初期化し,\ CAの公開鍵を
+      \[
+        spk = (p, \mathbb{G}_1, \mathbb{G}_2, \mathbb{G_T}, e, \{w_{0,l}\}_{l=1}^L,w_1,\{w_{2,i}\}_{i=0}^{num_{RSU}},w_3,g_0,g_1,g_2,g_3,g_4,f_0,f_1,h_0,h_1,\{\{A_{l,k}\}_{k=1}^{K_l}\}_{l=1}^L,pcpk_{CA}),
+      \]
+      CAの秘密鍵を\ $ssk=\gamma_{2,0}$\ ,\ RSU'sの秘密鍵を\ $i \in[1, num_{RSU}]$\ に対し,\ $rsk_i = (\gamma_{2,i},pcsk_i,pcpk_i,pcpk_{cert_i})$\ とする. \\
+    \end{enumerate}
+    
+\subsection{Register}
+    このアルゴリズムは, 車 $\bold{V}$\ とCAとの対話型プロトコルで, CAは, 車の初期評価証明書\ $cert_0$\ を発行する. 共通入力を\ $spk$, CAの入力を\ $ssk$\ とする. \\
+    \begin{enumerate}
+      \item $\bold{[V]:}$ 秘密\ $x \xleftarrow{R} \mathbb{Z}_p^*$, 評価証明書のタグ\ $S_0 \xleftarrow{R} \mathbb{Z}_p^*$, ランダム要素\ $\zeta_0' \xleftarrow{R} \mathbb{Z}_p^*$を選択し, \ $C_{m,0}' = g_1^{\zeta_0'}g_2^xg_3^{S_0}$\ で署名されるメッセージベクトル\ $(x, S_0)$に対するコミットメントを計算する. また, CAに以下のPoKで\ $C_{m,0}'$\ が正しく作られていることを証明する.\\
+      \[
+        PoK\{(\zeta_0', x, S_0): C_{m,0}'=g_1^{\zeta_0'}g_2^xg_3^{S_0}\}
+      \]
+      
+      \item $\bold{[CA]:}$ 初期評価を\ $rep_0 = 0$と設定し, ランダム要素\ $\zeta_0^{''}, \eta_0 \xleftarrow{R} \mathbb{Z}_p^*$\ を選ぶ. また, 秘密鍵\ $\gamma_{2,0}$を使い, メッセージベクトル\ $(x, S_0, rep_0)$\ を\ $B_0 = (g_0g_1^{\zeta_0^{''}}C_{m,0}'g_4^{rep_0})^{1/(\gamma_{2,0}, \eta_0)}$と署名する. 車に\ $\tilde{\sigma}_0'=(B_0,\eta_0,\zeta_0^{''})$を送る. \\
+      
+      \item $\bold{[V]:}$ $C_{m,0} = C_{m,0}'g_4^{rep_0}\ (rep_0 = 0)$とし,\ $\zeta_0 = \zeta_0'+\zeta_0^{''}$を計算し, メッセージ\ $(x,S_0,rep_0)$のBBS+署名\ $\tilde{\sigma}_0=(B_0,\eta_0,\zeta_0)\ (B_0 = (g_0g_1^{\zeta_0}g_2^xg_4^{rep_0})^{1/(\gamma_{2,0}+\eta_0)})$を計算する.\ $cert_0=(x,rep_0,\tilde{\sigma}_0,S_0,C_{m,0})$を出力する.
+    \end{enumerate}
+    
+\subsection{Revoke}
+    このアルゴリズムは, CAがRSUの失効を行う.\ 現在の木に対して,\ CS法を適用して得られる部分木のルートノードを\ $\{u_0',u_1',\cdots,u_{num}'\}$とする. ここで\ $num \leq r\cdot log(N/r)$.\ すべての\ $i\ \in [0,num]$\ に対して,\ $\eta_j^{''},\zeta_j^{''} \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び,\ $R_{T,j} = (g_0g_1^{\zeta_j''}g_2^{u_j}g_3^T)^{1/(\gamma_1 + \eta_j^{''})}$を計算し, $\{\Theta =(R_{T,j},\eta_j^{''},\zeta_j^{''})\}_{i=0}^{num}$とする.\ 失効リスト\ $RL_T = (T,R_T,\{\Theta_i\}_{i=1}^{num})$を出力する.\ ここで,\ $i \in R_T$\ は時刻\ $T$で失効されているRSU\ $i$.
+    
+\subsection{Show}
+    このアルゴリズムは, 車 $\bold{V}$\ と1番近いRSUとの対話型プロトコルで,\ 車はRSUに評価レベル\ $l$,\ 仮名\ $pseu_{\tau}$\ をインターバル\ $\tau$ごとに登録する. それに対応する秘密鍵\ $psk_{\tau}$\ も\ $\bold{V}$は保持する. このアルゴリズムの最初に,\ 車の評価値を\ $cert_{t-1} =(x,rep_{t-1},\tilde{\sigma}_{t-1},S_{t-1},C_{m,t-1})$で証明する. ここで\ $\tilde{\sigma}_{t-1}=(B_{t-1},\eta_{t-1},\zeta_{t-1})$.\ $t$\ は,\ 車の評価証明書の更新回数を示している. RSU\ $i$\ を\ $\tilde{\sigma}_{t-1}$を発行したRSU.\ RSUの入力を\ $SSet$\ とする.
+    \begin{enumerate}
+      \item $\bold{[V]:}$ $spk$\ から評価レベル証明書\ $A_{l,rep_{t-1}}$を取り出す.\ $r_{A_l} \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び,\ $C_{A_l}  =A_{l,rep_{t-1}}\cdot f_1^{r_{A_l}}, \rho = r_{A_l}\cdot rep_{t-1}$を計算する.\ 
+      $\hat{\zeta}',\ r_{\tilde{w}_{2,i}} \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び,\ $C_{\tilde{A}_{i,j}} = \tilde{A}_{i,j}\cdot f_1^{\hat{\zeta}'},\ C_{\tilde{w}_{2,i}}=\tilde{w}_{2,i}\cdot f_1^{r_{\tilde{w}_{2,i}}}$を計算する.\ $\theta'=\zeta_j'+\hat{\zeta}'\cdot \eta_j'$をセットする.\ 
+      $\hat{\zeta}^{''} \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び,\ $C_{R_{T,j}} = R_{T,j}\cdot g_1^{\hat{\zeta}^{''}}$を計算する.\ $\theta^{''}=\zeta_j^{''}+\hat{\zeta}^{''}\cdot \eta_j^{''}$をセットする.\ 
+      $\hat{\zeta} \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び,\ $C_{B_{t-1}} = B_{t-1}\cdot g_1^{\hat{\zeta}}$を計算する.\ $\theta=\zeta_{t-1}+\hat{\zeta}\cdot \eta_{t-1}$をセットする.\ 
+      $\zeta_t',\ S_t \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び,\ をベクトル\ $(x,S_t,rep_{t-1})$のコミットメント\ $C'_{m,t} = g_1^{\zeta_{t-1}}g_2^xg_3^{S_{t-1}}g_4^{rep_{t-1}}$\ を計算する.\ 
+      $\nu = \hat{\zeta}\cdot r_{w_{2,i}}$をセットし,\ $r_{\nu} \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び\ $C_{\nu}=g_0^{\nu}g_1^{r_{\nu}}$を計算する.\ $\hat{\beta}=r_{\nu}-r_{w_{2,i}}\cdot r_{\hat{\zeta}}$とセットする.\ 
+      $C_{A_l}, C_{\tilde{A}_{i,j}}, C_{\tilde{w}_{2,i}}, C_{R_{T,j}}, C_{B_{t-1}},C'_{m,t},S_{t-1}, C_{\hat{\zeta}},C_{\nu}, S_{t-1}$をRSUに送り,\ 以下のPoKを使い,\ $rep_{t-1}$が評価レベル\ $l$\ の要素であること,\ $cert_{t-1}$が正しいこと,\ RSU\ $i$\ が失効されてないこと,\ $C'_{m,t}$\ が正しいことを証明する.
+    
+     \begin{align} 
+        &SPK\{ (r_{A_l}, rep_{t-1}, \rho, \theta', u_j, r_{\tilde{w}_{2,i}}, \eta'_j, \hat{\zeta'}, \theta'', \eta''_j, \hat{\zeta''}, \theta, x, r_{w_{2,i}}, \eta_{t-1}, \hat{\zeta}, \nu, r_{\hat{\zeta}}, r_{\nu}, \hat{\beta}, \zeta_t', S_t) : \nonumber\\
+        &e(C_{A_l}, w_{0,l})\cdot e(f_0, h_0)^{-1}
+        = e(f_1, w_{0,l})^{r_{A_l}}\cdot e(C_{A_l}, h_0)^{-rep_{t-1}}\cdot e(f_1, h_0)^{\rho} \\
+        &\land e(C_{\tilde{A}_{i,j}}, w_1)\cdot e(C_{\tilde{w}_{2,i}}, h_0)^{-1}\cdot e(g_0, h_0)^{-1}
+        = e(g_1, h_0)^{\theta'} \cdot e(g_2, h_0)^{u_j}\cdot e(f_1, h_0)^{-r_{\tilde{w}_{2,i}}}\cdot e(C_{\tilde{A}_{i,j}}, h_0)^{-\eta_j'}\cdot e(g_1, w_1)^{\hat{\zeta'}} \\
+        &\land e(C_{R_{T,j}}, w_1) \cdot e(g_3, h_0)^{-T} \cdot e(g_0, h_0)^{-1}
+        = e(g_1, h_0)^{\theta''} \cdot e(g_2, h_0)^{u_j} \cdot e(C_{R_{T,j}}, h_0)^{-\eta_j''} \cdot e(g_1, w_1)^{\hat{\zeta''}} \\
+        &\land e(C_{B_{t-1}}, C_{w_{2,i}})\cdot e(g_3,h_0)^{-S_{t-1}}\cdot e(g_0,h_0)^{-1} \nonumber\\
+        &=e(g_1, h_0)^{\theta}\cdot e(g_2, h_0)^x\cdot e(g_4, h_0)^{rep_{t-1}}\cdot e(C_{B_{t-1}}, h_1)^{r_{w_{2,i}}}\cdot e(C_{B_{t-1}}, h_0)^{-\eta_{t-1}}\cdot e(g_1, C_{w_{2,i}})^{\hat{\zeta}}\cdot e(g_1, h_1)^{-\nu} \\
+        &\land C_{\hat{\zeta}} = g_0^{\hat{\zeta}}g_1^{r_{\hat{\zeta}}}
+        \land C_{\nu} = g_0^{\nu}g_1^{r_{\nu}}
+        \land C_{\nu} = C_{\hat{\zeta}}^{r_{w_{2,i}}}\cdot g_1^{\hat{\beta}} \\
+        &\land e(C_{\tilde{w}_{2,i}}, h_0)\cdot e(g_3, C_{w_{2,i}})^{-1}
+        = e(f_1, h_0)^{r_{\tilde{w}_{2,i}}}\cdot e(g_3, h_1)^{-r_{w_{2,i}}} \\
+        &\land C_{m,t}' = g_1^{\zeta_t'}g_2^xg_3^{S_t}g_4^{rep_{t-1}} \} \\ \nonumber
+    \end{align}
+
+    式(1)は,\ メッセージ\ $rep_{t-1}$\ のBB署名\ $A'_l$\ の検証を意味する.\ 
+    式(2)は,\ メッセージ\ $u_j,\gamma_{2,i}$\ のBBS+署名\ $\tilde{A}_{i,j}$\ の検証を意味する.\ 
+    式(3)は,\ メッセージ\ $u_j,T$\ のBBS+署名\ $R_{T,j}$\ の検証を意味する.\ 
+    式(5)は,\ $\nu = \hat{\zeta}\cdot r_{w_{2,i}}$を示し,\ したがって,\ 式(4)は,\ メッセージ\ $x,S_{t-1},rep_{t-1}$\ のBBS+署名\ $B_{t-1}$\ の検証を意味する.\ 
+
+    \item $\bold{[RSU]:}$ 証明書が新鮮であるかチェックし,\ $S_{t-1}\in SSet$の時,\ 棄却する.\ それ以外は,\ $SSet$\ に\ $S_{t-1}$\ を追加する.\ $PoK$\ を検証する.\ 
+
+    \item $\bold{[V]:}$ 通常のデジタル署名方式の鍵生成を行う.\ $(pk,sk) = (opk_{\tau},osk_{\tau})$とし,\ 現在のインターバル\ $\tau$\ での仮名として\ $opk_{\tau}$\ を送る.\ 
+
+    \item $\bold{[RSU]:}$ $opk_{\tau}$\ の証明書として,\ RSUの秘密鍵\ $pcsk_i \in rsk_i$を使い,\ メッセージ\ $(opk_{\tau}, l, \tau, i)$\ の通常の署名\ $sig_{i,\tau}$\ を生成する.\ $pseu_{\tau} = opk_{\tau}, pcert_{\tau}=(sig_{i,\tau},pcpk_i,pcpk_{cert_i})$ とし,\ $pseu_{\tau},pcert_{\tau},C_{m,t}'$\ を出力し,\ $SSet$\ を更新する.\ 
+
+    \item $\bold{[V]:}$ 公開鍵\ $pcpk_i$\ を使い,\ メッセージ\ $(opk_{\tau}, l, \tau, i)$\ の署名\ $sig_{i,\tau}$\ の検証を行う.\ 公開鍵\ $pcpk_{CA}$\ を使い,\ メッセージ\ $(pcpk_i, i)$\ の署名\ $pcpkcert_{i}$\ の検証を行う.\ どちらかが棄却された時, 中止する.\ それ以外の時,\ $pseu_{\tau}=opk_{\tau}, pcert_{\tau}=(sig_{i,\tau},pcpk_i,pcpk_{cert_i}),psk_{\tau}=osk_{\tau}$\ を出力する.\ 
+\end{enumerate}
+      
+\subsection{Authentication}
+    このアルゴリズムは, 車 $\bold{V}$\ と1番近いRSUとの対話型プロトコル.\ 共通入力は\ $spk$,\ 車の入力は,\ $M,pseu_{\tau},pcert_{\tau},pck_{\tau}$.\ RSUの出力は, 有効ビット\ $1(accepted)\ or\ 0(rejected)$\ と\  $(M, pseu_{\tau})$.
+    \begin{enumerate}
+        \item $\bold{[V]:}$ 秘密鍵\ $psk_{\tau}=osk_{\tau}$\ を使い, メッセージ\ $M$\ のデジタル署名\ $authsig$\ を計算し,\ $(M,authsig,pseu_{\tau},pcert_{\tau},l)$\ を送る.\ 
+        
+        \item $\bold{[RSU]:}$ 公開鍵\ $pcpk_i$\ を使い,\ メッセージ\ $(opk_{\tau}, l, \tau, i)$\ の署名\ $sig_{i,\tau}$\ の検証を行う.\ 公開鍵\ $pcpk_{CA}$\ を使い,\ メッセージ\ $(pcpk_i, i)$\ の署名\ $pcpkcert_{i}$\ の検証を行う.\ 公開鍵\ $opk_{\tau}$\ を使い,\ メッセージ\ $M$\ の署名\ $authsig$\ の検証を行う.\ いずれかが棄却された時, 中止する.\ それ以外の時,\ $(M,pseu_{\tau})$\ を出力する.\ 
+    \end{enumerate}
+    
+\subsection{Update}
+    このアルゴリズムは, 車 $\bold{V}$\ と1番近いRSUとの対話型プロトコル.\ 共通入力は\ $spk$,\ 車の入力は,\ 前の評価値\ $rep_{t-1}$\ の\ 証明書\ $cert_{t-1}$,\ RSUの入力は,\ $pseu_{\tau},C_{m,t}',\tilde{s}_{\tau},rsk_i$.\ 車の出力は, 更新された評価値\ $rep_t=rep_{t-1}+\tilde{s}_{\tau}$\ の新しい評価証明書\ $cert_{t}$.
+
+    \begin{enumerate}
+        \item $\bold{[RSU]:}$ $C_{m,t} = C_{m,t}'\cdot g_4^{\tilde{s}_{\tau}}$\ を計算し,\ $\gamma_{2,i} \in rsk_i$\ を使い,\ $\zeta_t^{''},\eta_t \xleftarrow{R} \mathbb{Z}_p^*$をランダムに選び,\ $B_t = (g_0g_1^{\zeta_t^{''}}C_{m,t})^{1/(\gamma_{2,i}+\eta_t)} = (g_0g_1^{\zeta_t^{''}}g_1^{\zeta_t'}g_2^xg_3^{S_t}g_4^{rep_{t-1}}g_4^{\tilde{s}_{\tau}})^{1/(\gamma_{2,i}+\eta_t)}$\ を生成する.\ その後,\ $\tilde{\sigma}_t'=(B_t,\eta_t,\zeta_t^{''})$\ を車に送る.\ 
+
+        \item $\bold{[V]:}$ $\zeta_t = \zeta_t' + \zeta_t^{''},\ rep_t=rep_{t-1}+\tilde{s}_{\tau}$\ を計算し,\ $\tilde{\sigma}_t=(B_t,\eta_t,\zeta_t)$を,\ メッセージベクトル\ $(x,S_t,rep_t)$\ の署名とする.\ $cert_t = (x,rep_t,\tilde{\sigma}_t,S_t,C_{m,t})$\ を出力する.\ 
+    \end{enumerate}
+    
+
+\begin{align} 
+    A'_l  &= (f_0f_1^{\xi})^{1/(\gamma_{0,l} + rep_{t-1})}, \\
+    \tilde{A}_{i,j} &= (g_0g_1^{\zeta_j'}g_2^{u_j}g_3^{\gamma_{2,i}})^{1/ (\gamma_1 + \eta_j')}, \\
+    R_{T,j} &= (g_0g_1^{\zeta_j''}g_2^{u_j}g_3^T)^{1/(\gamma_1 + \eta_j'')}, \\
+    B_{t-1} &= (g_0g_1^{\zeta_{t-1}}g_2^xg_3^{S_{t-1}}g_4^{rep_{t-1}})^{1/(\gamma_{2,i} + \eta_{t-1})}. \\
+\end{align}
+
+\end{document}
+
+

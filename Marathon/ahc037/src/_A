@@ -1,0 +1,180 @@
+#include <atcoder/all>
+#include <bits/stdc++.h>
+using namespace std;
+using namespace atcoder;
+using namespace chrono;
+
+typedef long long ll;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<vvll> vvvll;
+typedef pair<ll, ll> pll;
+typedef pair<pll, ll> ppll;
+typedef tuple<ll, ll, ll> tll;
+typedef vector<tll> vt;
+typedef vector<ppll> vpp;
+typedef vector<pll> vp;
+typedef vector<vp> vvp;
+typedef vector<char> vc;
+typedef vector<int> vi;
+typedef vector<string> vs;
+typedef vector<vs> vvs;
+#define rep(i, l, n) for (ll i = (ll)(l); i < (ll)(n); i++)
+#define repd(i, n, l) for (ll i = (ll)(n); i > (ll)(l); i--)
+#define Sort(a) sort(a.begin(), a.end())
+#define gSort(a) sort(a.begin(), a.end(), greater())
+template <class T, class S>
+inline bool chmax(T &a, const S &b) {
+  return (a < b ? a = b, 1 : 0);
+}
+template <class T, class S>
+inline bool chmin(T &a, const S &b) {
+  return (a > b ? a = b, 1 : 0);
+}
+#define INF INT_MAX
+#define INFF (9223372036854775800)
+#define TIME_LIMIT (3.5)
+#define def (20101)
+// #define MOD (1000000007)
+// #define MAX (2147483647)
+#define MAX (1073741823)
+#define MOD (998244353)
+
+ll N, _N, allN;
+vll A, B;
+
+int main() {
+  _N = 0;
+  srand((unsigned int)time(NULL));
+  auto startTime = system_clock::now();
+
+  cin >> N;
+  A.resize(N);
+  B.resize(N);
+  rep(i, 0, N) cin >> A[i] >> B[i];
+
+  A.push_back(0);
+  B.push_back(0);
+  _N++;
+  map<pll, ll> ma;
+  rep(i, 0, N) ma[{A[i], B[i]}] = 1;
+  rep(i, 0, 4 * N - 10) {
+    while (1) {
+      ll _x = rand() % ((ll)pow(10, 9) + 1);
+      ll _y = rand() % ((ll)pow(10, 9) + 1);
+      if (ma.count({_x, _y}) == 0) {
+        ma[{_x, _y}] = 1;
+        A.push_back(_x);
+        B.push_back(_y);
+        _N++;
+        break;
+      }
+    }
+  }
+  allN = N + _N;
+  vvll g(allN);
+  rep(i, 0, allN) {
+    rep(j, 0, allN) {
+      ll dist = abs(A[i] - A[j]) + abs(B[i] - B[j]);
+      if ((ll)pow(10, 7) < dist && (i != N && j != N)) continue;
+      if (A[i] <= A[j] && B[i] <= B[j]) {
+        g[i].push_back(j);
+      }
+    }
+  }
+  vll used(allN, 0);
+  used[N] = 1;
+  vvll ansG(allN);
+  ll sum = 0;
+  rep(i, 0, allN) sum += g[i].size();
+  cerr << "|E|: " << sum << endl;
+  ll loop = 0;
+  while (1) {
+    loop++;
+    vll dp(allN, INFF);
+    vll pre(allN, -1);
+    priority_queue<tll, vt, greater<tll>> pq;
+    rep(i, 0, allN) {
+      if (used[i] == 1) pq.push({0, i, -1});
+    }
+
+    // cerr << "first" << endl;
+    int flag = 0;
+    while (!pq.empty()) {
+      auto _cu = pq.top();
+      ll cu_cost = get<0>(_cu);
+      ll cu = get<1>(_cu);
+      ll _pre = get<2>(_cu);
+      pq.pop();
+      if (dp[cu] != INFF) continue;
+      // cerr << cu << " {" << A[cu] << " " << B[cu] << "}" << endl;
+      // cerr << cu << " ";
+      dp[cu] = cu_cost;
+      pre[cu] = _pre;
+      if (cu < N && cu_cost != 0) {
+        break;
+      }
+      for (ll to : g[cu]) {
+        if (dp[to] != INFF) continue;
+        ll dist = abs(A[cu] - A[to]) + abs(B[cu] - B[to]);
+        // cerr << "next " << to << " " << dist << endl;
+        pq.push({cu_cost + dist, to, cu});
+      }
+    }
+    // cerr << endl;
+    ll best = INFF;
+    ll best_p = -1;
+    rep(i, 0, N) {
+      if (used[i] == 1) continue;
+      if (chmin(best, dp[i])) {
+        best_p = i;
+      }
+    }
+
+    if (best_p == -1) break;
+    used[best_p] = 1;
+    // 復元
+    ll at = best_p;
+    while (1) {
+      used[at] = 1;
+      ll to = pre[at];
+      if (to == -1) break;
+      // to -> at
+      ansG[to].push_back(at);
+      at = to;
+    }
+
+    // cerr << "dp:" << endl;
+    // rep(i, 0, allN) cerr << i << " " << dp[i] << endl;
+    // int flag = 1;
+    // rep(i, 0, N) {
+    // if (used[i] == 0) {
+    //   dp[i] = 0;
+    //   flag = 0;
+    // }
+    // if (flag) break;
+  }
+  cerr << "loop: " << loop << endl;
+
+  vector<pair<pll, pll>> ans;
+  vll seen(allN, 0);
+  seen[N] = 1;
+  queue<ll> qu;
+  qu.push(N);
+  while (!qu.empty()) {
+    ll cu = qu.front();
+    qu.pop();
+    for (ll to : ansG[cu]) {
+      if (seen[to] == 1) continue;
+      seen[to] = 1;
+      qu.push(to);
+      ans.push_back({{A[cu], B[cu]}, {A[to], B[to]}});
+    }
+  }
+
+  cout << ans.size() << endl;
+  rep(i, 0, ans.size()) {
+    cout << ans[i].first.first << " " << ans[i].first.second << " ";
+    cout << ans[i].second.first << " " << ans[i].second.second << endl;
+  }
+}

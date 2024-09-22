@@ -1,0 +1,46 @@
+for f in ../in/0030_0/*.txt; do ./a.out < $f > output.txt; done
+for f in `seq 1 20`; do ./a.out < input.txt > output.txt; done 
+
+./a.out < ../in/in30/0017.txt > output.txt
+./a.out < ../in/in/0006.txt > output.txt
+./a.out < input.txt > output.txt
+
+cd Marathon/ahc023/src
+for f in ../in/in30/*.txt; do ./a.out < $f > output.txt; done  
+for f in ../in/in/*.txt; do ./a.out < $f > output.txt; done  
+for f in ../in/in30/*.txt; do echo $f && ./a.out < $f > ./output.txt; done  
+
+cd Marathon/ahc036/src; g++ -std=c++17 -O2 -D_DEBUG local09.cpp
+for f in ../in/in100/*.txt; do echo $f && ./a.out < $f > ./output.txt; done  
+for f in ../in/in700_000/*.txt; do echo $f && ./a.out < $f > ./output.txt; done  
+for f in ../in/in30/*.txt; do ./a.out < $f > output.txt; done  
+./a.out < ../in/in100/0042.txt > output.txt
+lldb ./a.out < ../in/in400_700/0020.txt > output.txt
+for f in ../in/in100_400/*.txt; do echo $f && ./a.out < $f > ./output.txt; done  
+for f in ../in/in100_400/*.txt; do echo $f && ./a.out < $f > ./output.txt; done  
+
+g++ -std=c++17 -O2 -D_DEBUG local24.cpp
+for f in ../in/in100_400/*.txt; do echo $f && ./a.out < $f; done  
+for f in ../in/in400_700/*.txt; do echo $f && ./a.out < $f; done  
+for f in ../in/in700_000/*.txt; do echo $f && ./a.out < $f; done  
+
+for f in ../in/in100_400/*.txt; do ./a.out < $f; done  
+for f in ../in/in400_700/*.txt; do ./a.out < $f; done  
+for f in ../in/in700_000/*.txt; do ./a.out < $f; done  
+cd Marathon; cd ahc036; cd src;
+
+
+
+#ifdef _DEBUG
+  at = 2;
+#else
+  at = 3;
+#endif
+
+#if defined マクロ名
+～
+#elif defined マクロ名
+～
+#else
+～
+#endif
